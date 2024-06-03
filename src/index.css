@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.login-img {
+    background: url('./assets/images/login.webp');
+    background-size: cover; /* Adjusts the background image size to cover the entire div */
+    background-position: right center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 100%; /* Ensures the div takes up the full width of its container */
+    height: auto; /* Ensures the div takes up the full height of its container */
+  }
+  
+  .login-img1 {
+    background: url('https://quiz.testdr.co.uk/adminPanel/quiz-login.be9ec6099bbbb3c5.jpg');
+    background-size: cover; /* Adjusts the background image size to cover the entire div */
+    background-position: right center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 100%; /* Ensures the div takes up the full width of its container */
+    height: auto; /* Ensures the div takes up the full height of its container */
+  }
+  

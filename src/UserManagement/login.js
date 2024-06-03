@@ -1,10 +1,18 @@
-// src/components/Login.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import loginImage from '../assets/images/login.webp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import logoImage from '../assets/images/1decision-logo.jpg';
+import '../index.css'; // Ensure your CSS file is imported
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const initialValues = {
     email: '',
     password: '',
@@ -22,22 +30,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 login-img">
       <div className="flex flex-col w-full max-w-4xl bg-white shadow-lg md:flex-row md:space-x-4 rounded-lg">
         <div className="flex flex-col justify-center flex-1 p-8 space-y-4">
           <div className="text-center">
-            <img src="assets/images/1decision-logo.jpg" alt="Logo" className="w-20 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold">Welcome Back</h2>
+            <img src={logoImage} alt="Logo" className="w-25 mx-auto mb-4" />
           </div>
-          <button className="flex items-center justify-center w-full p-2 space-x-2 text-white bg-red-500 rounded-md">
-            <i className="fab fa-google"></i>
-            <span>Sign In With Google</span>
-          </button>
-          <button className="flex items-center justify-center w-full p-2 space-x-2 text-white bg-blue-600 rounded-md">
-            <i className="fab fa-facebook"></i>
-            <span>Sign In With Facebook</span>
-          </button>
-          <div className="text-center text-gray-400">OR SIGN IN WITH EMAIL</div>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -56,11 +54,19 @@ const Login = () => {
                 </div>
                 <div>
                   <label htmlFor="password" className="block text-gray-600">Enter Password</label>
-                  <Field
-                    name="password"
-                    type="password"
-                    className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
-                  />
+                  <div className="relative">
+                    <Field
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                    />
+                    <span
+                      onClick={togglePasswordVisibility}
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                    >
+                      <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                    </span>
+                  </div>
                   <ErrorMessage name="password" component="div" className="text-red-500" />
                 </div>
                 <div className="flex items-center justify-between">
@@ -76,7 +82,8 @@ const Login = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-2 text-white bg-purple-600 rounded-md hover:bg-purple-700"
+                  className="w-full py-2 text-white rounded-md"
+                  style={{ backgroundColor: '#336699' }}
                   disabled={isSubmitting}
                 >
                   Sign In
@@ -89,8 +96,8 @@ const Login = () => {
             <a href="#" className="text-purple-600 hover:underline">Sign up here</a>
           </div>
         </div>
-        <div className="flex-1 hidden md:flex md:items-center md:justify-center bg-purple-600 rounded-r-lg">
-          <img src={loginImage} alt="Login" className="max-w-xs" />
+        <div className="flex-1 hidden md:flex md:items-center md:justify-center login-img1 rounded-r-lg">
+          
         </div>
       </div>
     </div>
