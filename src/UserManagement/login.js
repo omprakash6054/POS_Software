@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +9,7 @@ import '../index.css'; // Ensure your CSS file is imported
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -24,13 +26,21 @@ const Login = () => {
     password: Yup.string().required('Password is required')
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
-    // Handle login logic here
+  const handleSubmit = (values, { setSubmitting, setFieldError }) => {
+    setTimeout(() => {
+      setSubmitting(false);
+      if (values.email === 'teacher@gmail.com' && values.password === 'Teacher@123') {
+        // Successful login, redirect to dashboard
+        navigate('/dashboard');
+      } else {
+        // Invalid credentials
+        setFieldError('email', 'Invalid email or password');
+      }
+    }, 400);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 login-img">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="flex flex-col w-full max-w-4xl bg-white shadow-lg md:flex-row md:space-x-4 rounded-lg">
         <div className="flex flex-col justify-center flex-1 p-8 space-y-4">
           <div className="text-center">
@@ -44,16 +54,16 @@ const Login = () => {
             {({ isSubmitting }) => (
               <Form className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="block text-gray-600">Email Address</label>
+                  <label htmlFor="email" className="block text-gray-600">Username</label>
                   <Field
                     name="email"
-                    type="email"
+                    type="text"
                     className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
                   />
                   <ErrorMessage name="email" component="div" className="text-red-500" />
                 </div>
                 <div>
-                  <label htmlFor="password" className="block text-gray-600">Enter Password</label>
+                  <label htmlFor="password" className="block text-gray-600">Password</label>
                   <div className="relative">
                     <Field
                       name="password"
@@ -78,7 +88,7 @@ const Login = () => {
                     />
                     <span className="text-gray-600">Remember Me</span>
                   </label>
-                  <a href="#" className="text-sm text-purple-600 hover:underline">Forgot Password?</a>
+                  <a href="/forgot-password" className="text-sm text-purple-600 hover:underline">Forgot Password?</a>
                 </div>
                 <button
                   type="submit"
@@ -93,10 +103,10 @@ const Login = () => {
           </Formik>
           <div className="text-center">
             <span className="text-gray-600">Don't have an account yet? </span>
-            <a href="#" className="text-purple-600 hover:underline">Sign up here</a>
+            <a href="/register" className="text-purple-600 hover:underline">Sign up here</a>
           </div>
         </div>
-        <div className="flex-1 hidden md:flex md:items-center md:justify-center login-img1 rounded-r-lg">
+        <div className="flex-1 hidden md:flex md:items-center md:justify-center login-img rounded-r-lg">
           
         </div>
       </div>
