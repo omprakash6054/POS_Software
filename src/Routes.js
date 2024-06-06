@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './UserManagement/Login';
-import Register from './UserManagement/Register';
-import ForgotPassword from './UserManagement/ForgotPassword';
+import Login from './UserManagement/login';
+import Register from './UserManagement/register';
+import ForgotPassword from './UserManagement/forgotpassword';
 import Dashboard from './AdminDashboard/Dashboard';
 import Schools from './AdminDashboard/Schools';
 import Teachers from './AdminDashboard/Teachers';

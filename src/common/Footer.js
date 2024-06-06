@@ -4,8 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-indigo-950 opacity-90 text-white p-4 text-center">
-      &copy; {currentYear} Admin Dashboard
+    <footer className="bg-indigo-950 opacity-90 text-white p-4 text-left">
+      &copy; {currentYear} 1decision. All Rights Are Reserved. 
     </footer>
   );
 };
