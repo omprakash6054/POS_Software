@@ -23,13 +23,13 @@ body {
     left: 0;
     width: 100%; /* Ensures the overlay covers the full width of the .login-img div */
     height: 100%; /* Ensures the overlay covers the full height of the .login-img div */
-    background-color: rgba(0, 0, 0, 0.1); /* A black overlay with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.5); /* A black overlay with 50% opacity */
     z-index: 9; /* Ensures the overlay appears above the background image */
   }
   
   
   .side-login-img {
-    background: url('./assets/images/side-login.jpg');
+    background: url('./assets/images/side-login1.jpg');
     background-size: cover; /* Adjusts the background image size to cover the entire div */
     background-position: center center; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
