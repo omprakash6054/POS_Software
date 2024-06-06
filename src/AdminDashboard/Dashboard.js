@@ -80,15 +80,15 @@ const Dashboard = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white p-4 shadow-lg rounded-lg">
-          <h3 className="text-lg font-bold mb-2">Doughnut Chart</h3>
+          <h3 className="text-lg font-bold mb-2">Number of Pupil Taken Test</h3>
           <div style={{ position: 'relative', width: '100%', height: '400px' }}>
-            <Doughnut data={doughnutData} options={options} />
+            <Bar data={barData} options={options} />
           </div>
         </div>
         <div className="bg-white p-4 shadow-lg rounded-lg">
-          <h3 className="text-lg font-bold mb-2">Bar Chart</h3>
+          <h3 className="text-lg font-bold mb-2">Pupil Year Groups</h3>
           <div style={{ position: 'relative', width: '100%', height: '400px' }}>
-            <Bar data={barData} options={options} />
+            <Doughnut data={doughnutData} options={options} />
           </div>
         </div>
       </div>
