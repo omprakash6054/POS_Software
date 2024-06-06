@@ -83,14 +83,19 @@ const Dashboard = () => {
     <div>
       <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
-      <DashboardCard icon={<svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
-        value="574" label="Total Tests" bgColor="bg-purple-100" />
-      <DashboardCard icon={<svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
-        value="984" label="Total Teachers" bgColor="bg-green-100"/>
-      <DashboardCard icon={<svg className="w-12 h-12 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
-        value="12.5%" label="Total Schools" bgColor="bg-yellow-100" />
-      <DashboardCard icon={<svg className="w-12 h-12 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
-        value="12.5%" label="Total Pupil" bgColor="bg-pink-100"/>
+        <DashboardCard icon={<svg className="w-24 h-24 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V8l-6-6H9a2 2 0 00-2 2v4H7v-4a2 2 0 012-2h2V2zm6 0v4h4M9 14h6M9 10h6m-3 4h3m-9 4h3"
+        /></svg>}
+          value="574" label="Total Tests" bgColor="bg-purple-100" />
+        <DashboardCard icon={<svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
+          value="984" label="Total Teachers" bgColor="bg-green-100" />
+        <DashboardCard icon={<svg className="w-12 h-12 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
+          value="12.5%" label="Total Schools" bgColor="bg-yellow-100" />
+        <DashboardCard icon={<svg className="w-12 h-12 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}
+          value="12.5%" label="Total Pupil" bgColor="bg-pink-100" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white p-4 shadow-lg rounded-lg">
@@ -101,7 +106,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="bg-white p-4 shadow-lg rounded-lg">
-          <h3 className="text-lg font-bold mb-2">Pupil Year Groups</h3> 
+          <h3 className="text-lg font-bold mb-2">Pupil Year Groups</h3>
           <div className="border-t-2 border-gray-200 mt-3" />
           <div className="mt-5" style={{ position: 'relative', width: '100%', height: '500px' }}>
             <Doughnut data={doughnutData} options={options} />

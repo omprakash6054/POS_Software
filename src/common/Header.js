@@ -22,7 +22,7 @@ const Header = ({ toggleSidebar }) => {
       <div className="relative">
         <button onClick={toggleDropdown} className="flex items-center focus:outline-none">
           <img src={userProfile} alt="User Avatar" className="w-10 h-10 rounded-full mr-2" />
-          <span className="text-white mr-2 hidden md:block">Username</span>
+          <span className="text-white mr-2 hidden md:block">Hayley</span>
           <ChevronDownIcon className="w-5 h-5 text-white hidden md:block" />
         </button>
         {isDropdownOpen && (
