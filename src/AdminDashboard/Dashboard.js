@@ -86,8 +86,7 @@ const Dashboard = () => {
         <DashboardCard icon={<svg className="w-24 h-24 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9 2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V8l-6-6H9a2 2 0 00-2 2v4H7v-4a2 2 0 012-2h2V2zm6 0v4h4M9 14h6M9 10h6m-3 4h3m-9 4h3"
+          strokeWidth={2} d="M9 12l2 2 4-4"
         /></svg>}
           value="574" label="Total Tests" bgColor="bg-purple-100" />
         <DashboardCard icon={<svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" /></svg>}

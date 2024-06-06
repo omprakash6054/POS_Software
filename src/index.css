@@ -4,36 +4,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
   }
   .login-img {
-    position: relative; /* Ensures that the overlay is positioned relative to this div */
+    position: relative; 
     background: url('./assets/images/login.webp');
-    background-size: cover; /* Adjusts the background image size to cover the entire div */
-    background-position: right center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
-    width: 100%; /* Ensures the div takes up the full width of its container */
-    height: auto; /* Ensures the div takes up the full height of its container */
+    background-size: cover; 
+    background-position: right center; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    height: auto; 
   }
   
   .login-img::before {
     content: '';
-    position: absolute; /* Positions the overlay absolutely within the .login-img div */
+    position: absolute; 
     top: 0;
     left: 0;
-    width: 100%; /* Ensures the overlay covers the full width of the .login-img div */
-    height: 100%; /* Ensures the overlay covers the full height of the .login-img div */
-    background-color: rgba(0, 0, 0, 0.5); /* A black overlay with 50% opacity */
-    z-index: 9; /* Ensures the overlay appears above the background image */
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9; 
   }
-  
   
   .side-login-img {
     background: url('./assets/images/side-login1.jpg');
-    background-size: cover; /* Adjusts the background image size to cover the entire div */
-    background-position: center center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
-    width: 100%; /* Ensures the div takes up the full width of its container */
-    height: auto; /* Ensures the div takes up the full height of its container */
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    height: auto; 
+  }
+  .css-1ex1afd-MuiTableCell-root{
+    font-family: 'Inter' !important;
+    color:#000 !important;
+  }
+  .css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root{
+    font-family: 'Inter' !important;
+    color:#fff !important;
+  }
+  .css-1ygcj2i-MuiTableCell-root{
+    font-family: 'Inter' !important;
+    color:#fff !important;
   }
   
