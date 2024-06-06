@@ -1,56 +1,62 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 ChartJS.register(
-    ArcElement,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+const doughnutData = {
+  labels: ['Red', 'Blue', 'Yellow'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+    },
+  ],
+};
+
+const barData = {
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
+
+const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+};
 
 const Dashboard = () => {
-  const doughnutData = {
-    labels: ['Red', 'Blue', 'Yellow'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      },
-    ],
-  };
-
-  const barData = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-      {
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
@@ -75,11 +81,15 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white p-4 shadow-lg rounded-lg">
           <h3 className="text-lg font-bold mb-2">Doughnut Chart</h3>
-          <Doughnut data={doughnutData} class="w-full h-full"/>
+          <div style={{ position: 'relative', width: '100%', height: '400px' }}>
+            <Doughnut data={doughnutData} options={options} />
+          </div>
         </div>
         <div className="bg-white p-4 shadow-lg rounded-lg">
           <h3 className="text-lg font-bold mb-2">Bar Chart</h3>
-          <Bar data={barData}  class="w-full h-full"/>
+          <div style={{ position: 'relative', width: '100%', height: '400px' }}>
+            <Bar data={barData} options={options} />
+          </div>
         </div>
       </div>
     </div>
