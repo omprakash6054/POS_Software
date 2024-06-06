@@ -6,7 +6,8 @@
 body {
     font-family: 'Inter', sans-serif;
   }
-.login-img {
+  .login-img {
+    position: relative; /* Ensures that the overlay is positioned relative to this div */
     background: url('./assets/images/login.webp');
     background-size: cover; /* Adjusts the background image size to cover the entire div */
     background-position: right center; /* Centers the background image */
@@ -15,10 +16,22 @@ body {
     height: auto; /* Ensures the div takes up the full height of its container */
   }
   
-  .login-img1 {
-    background: url('https://quiz.testdr.co.uk/adminPanel/quiz-login.be9ec6099bbbb3c5.jpg');
+  .login-img::before {
+    content: '';
+    position: absolute; /* Positions the overlay absolutely within the .login-img div */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures the overlay covers the full width of the .login-img div */
+    height: 100%; /* Ensures the overlay covers the full height of the .login-img div */
+    background-color: rgba(0, 0, 0, 0.1); /* A black overlay with 50% opacity */
+    z-index: 9; /* Ensures the overlay appears above the background image */
+  }
+  
+  
+  .side-login-img {
+    background: url('./assets/images/side-login.jpg');
     background-size: cover; /* Adjusts the background image size to cover the entire div */
-    background-position: right center; /* Centers the background image */
+    background-position: center center; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     width: 100%; /* Ensures the div takes up the full width of its container */
     height: auto; /* Ensures the div takes up the full height of its container */

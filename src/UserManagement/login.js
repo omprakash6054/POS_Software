@@ -40,8 +40,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="flex flex-col w-full max-w-4xl bg-white shadow-lg md:flex-row md:space-x-4 rounded-lg">
+    <div className="login-img flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex flex-col w-full max-w-4xl bg-white shadow-lg md:flex-row md:space-x-4 rounded-lg z-30">
         <div className="flex flex-col justify-center flex-1 p-8 space-y-4">
           <div className="text-center">
             <img src={logoImage} alt="Logo" className="w-25 mx-auto mb-4" />
@@ -106,7 +106,7 @@ const Login = () => {
             <a href="/register" className="text-purple-600 hover:underline">Sign up here</a>
           </div>
         </div>
-        <div className="flex-1 hidden md:flex md:items-center md:justify-center login-img rounded-r-lg">
+        <div className="flex-1 hidden md:flex md:items-center md:justify-center side-login-img rounded-r-lg">
           
         </div>
       </div>
