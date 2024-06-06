@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-900 text-white p-4 text-center">
-      &copy; 2024 Admin Dashboard
+    <footer className="bg-indigo-950 opacity-90 text-white p-4 text-center">
+      &copy; {currentYear} Admin Dashboard
     </footer>
   );
 };
