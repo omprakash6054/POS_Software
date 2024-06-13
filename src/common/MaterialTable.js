@@ -1,4 +1,3 @@
-// MaterialTable.js
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -14,6 +13,10 @@ import {
   IconButton,
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
+
+const fontStyle = {
+  fontFamily: 'Inter, sans-serif',
+};
 
 const MaterialTable = ({ columns, rows, onEdit, onDelete }) => {
   const [order, setOrder] = React.useState('asc');
@@ -62,55 +65,55 @@ const MaterialTable = ({ columns, rows, onEdit, onDelete }) => {
     return 0;
   };
 
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-
   return (
-    <Paper className='mt-2'>
+    <Paper className='mt-2' style={fontStyle}>
       <TableContainer>
         <Table>
-          <TableHead style={{ backgroundColor: '#336699', color:'#fff' }}>
+          <TableHead style={{ backgroundColor: '#336699', color:'#fff', ...fontStyle }}>
             <TableRow>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   sortDirection={orderBy === column.id ? order : false}
-                  style={{ color: 'white' }}
+                  style={{ color: 'white', ...fontStyle }}
                 >
                   <TableSortLabel
                     active={orderBy === column.id}
                     direction={orderBy === column.id ? order : 'asc'}
                     onClick={(event) => handleRequestSort(event, column.id)}
-                    style={{ color: 'inherit' }}
+                    style={{ color: 'inherit', ...fontStyle }}
                   >
                     {column.label}
                   </TableSortLabel>
                 </TableCell>
               ))}
-              <TableCell style={{ color: 'white' }}>Actions</TableCell>
+              <TableCell style={{ color: 'white', ...fontStyle }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {stableSort(rows, getComparator(order, orderBy))
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => (
-                <TableRow key={index}>
-                  {columns.map((column) => (
-                    <TableCell key={column.id}>{row[column.id]}</TableCell>
-                  ))}
-                  <TableCell>
-                    <IconButton onClick={() => onEdit(row)}>
-                      <Edit />
-                    </IconButton>
-                    <IconButton onClick={() => onDelete(row)}>
-                      <Delete />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={columns.length + 1} />
+            {rows.length > 0 ? (
+              stableSort(rows, getComparator(order, orderBy))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <TableRow key={index} style={fontStyle}>
+                    {columns.map((column) => (
+                      <TableCell key={column.id} style={fontStyle}>{row[column.id]}</TableCell>
+                    ))}
+                    <TableCell>
+                      <IconButton onClick={() => onEdit(row)} style={fontStyle}>
+                        <Edit />
+                      </IconButton>
+                      <IconButton onClick={() => onDelete(row)} style={fontStyle}>
+                        <Delete />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))
+            ) : (
+              <TableRow style={fontStyle}>
+                <TableCell colSpan={columns.length + 1} align="center" style={fontStyle}>
+                  No records to display
+                </TableCell>
               </TableRow>
             )}
           </TableBody>
@@ -124,6 +127,7 @@ const MaterialTable = ({ columns, rows, onEdit, onDelete }) => {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        style={fontStyle}
       />
     </Paper>
   );

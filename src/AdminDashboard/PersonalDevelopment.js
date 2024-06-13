@@ -82,32 +82,29 @@ const PersonalDevelopment = () => {
           <h1 className="text-2xl font-bold mt-2">Personal Development Areas</h1>
         </Grid>
         <Grid item xs={4} style={{ textAlign: 'right' }}>
-          <Button variant="contained" color="primary" onClick={handleClickOpen} style={{ backgroundColor: '#336699' }}>
+          <Button variant="contained" color="primary" onClick={handleClickOpen} style={{ backgroundColor: '#336699', fontFamily:'Inter' }}>
             + Create
           </Button>
         </Grid>
       </Grid>
       <Grid container spacing={2} style={{ marginTop: '20px' }}>
-        <Grid item xs={12} style={{ textAlign: 'right' }}>
-          <Card xs={2}>
-            <CardContent>
-              <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}>
-                <InputBase  
-                  sx={{ ml: 1, flex: 1 }}
-                  placeholder="Search.."
-                  inputProps={{ 'aria-label': 'search' }}
-                  value={searchQuery}
-                  onChange={handleSearch}
-                />
-                <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-                  <SearchIcon />
-                </IconButton>
-                <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-              </Paper>
-            </CardContent>
-          </Card>
-        </Grid>
+      <Grid item xs={12}>
+        <Card>
+          <CardContent>
+            <Grid container justifyContent="flex-end">
+              <Grid item xs={2}>
+                <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', border: '1px solid #ccc',  borderRadius: '4px' }} >
+                  <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search.." inputProps={{ 'aria-label': 'search' }} value={searchQuery} onChange={handleSearch} style={{ fontFamily: 'Inter' }}/>
+                  <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" style={{ fontFamily: 'Inter' }}>
+                    <SearchIcon />
+                  </IconButton>
+                </Paper>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
       </Grid>
+    </Grid>
       <MaterialTable columns={columns} rows={filteredAreas} onEdit={handleEdit} onDelete={handleDelete} />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Personal Development Areas</DialogTitle>
