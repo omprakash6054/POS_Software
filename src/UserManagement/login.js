@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = (values, { setSubmitting, setFieldError }) => {
     setTimeout(() => {
       setSubmitting(false);
-      if (values.email === 'teacher@gmail.com' && values.password === 'Teacher@123') {
+      if (values.email === 'sop6054@gmail.com' && values.password === 'Om@123') {
         // Successful login, redirect to dashboard
         navigate('/dashboard');
       } else {

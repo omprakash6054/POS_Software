@@ -69,7 +69,7 @@ const MaterialTable = ({ columns, rows, onEdit, onDelete }) => {
     <Paper className='mt-2' style={fontStyle}>
       <TableContainer>
         <Table>
-          <TableHead style={{ backgroundColor: '#336699', color:'#fff', ...fontStyle }}>
+          <TableHead className='bg-cyan-950' style={{ color:'#fff', ...fontStyle }}>
             <TableRow>
               {columns.map((column) => (
                 <TableCell

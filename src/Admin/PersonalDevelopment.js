@@ -82,7 +82,7 @@ const PersonalDevelopment = () => {
           <h1 className="text-2xl font-bold mt-2">Personal Development Areas</h1>
         </Grid>
         <Grid item xs={4} style={{ textAlign: 'right' }}>
-          <Button variant="contained" color="primary" onClick={handleClickOpen} style={{ backgroundColor: '#336699', fontFamily:'Inter' }}>
+          <Button variant="contained" onClick={handleClickOpen} className={'bg-cyan-950'}>
             + Create
           </Button>
         </Grid>

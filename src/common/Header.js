@@ -15,14 +15,14 @@ const Header = ({ toggleSidebar }) => {
   };
 
   return (
-    <header className="bg-indigo-950 p-4 flex justify-between items-center relative">
+    <header className="bg-cyan-900 p-4 flex justify-between items-center relative">
       <button onClick={toggleSidebar} className="focus:outline-none text-white">
         <MenuIcon className="w-6 h-6" />
       </button>
       <div className="relative">
         <button onClick={toggleDropdown} className="flex items-center focus:outline-none">
           <img src={userProfile} alt="User Avatar" className="w-10 h-10 rounded-full mr-2" />
-          <span className="text-white mr-2 hidden md:block">Hayley</span>
+          <span className="text-white mr-2 hidden md:block">Om Prakash</span>
           <ChevronDownIcon className="w-5 h-5 text-white hidden md:block" />
         </button>
         {isDropdownOpen && (

@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './UserManagement/login';
 import Register from './UserManagement/register';
 import ForgotPassword from './UserManagement/forgotpassword';
-import Dashboard from './AdminDashboard/Dashboard';
-import Schools from './AdminDashboard/Schools';
-import Teachers from './AdminDashboard/Teachers';
-import PersonalDevelopment from './AdminDashboard/PersonalDevelopment';
+import Dashboard from './Admin/Dashboard';
+import Schools from './Admin/Schools';
+import Teachers from './Admin/Teachers';
+import PersonalDevelopment from './Admin/PersonalDevelopment';
 import Layout from './common/Layout';
 
 const AppRoutes = () => {
