@@ -7,7 +7,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logoImage from '../assets/images/1decision-logo.jpg';
-import axios from 'axios';
+import authService from '../services/authService'; // Import authService
 import '../index.css';
 
 const Login = () => {
@@ -19,39 +19,33 @@ const Login = () => {
   };
 
   const initialValues = {
-    email: '',
+    username: '',
     password: '',
     rememberMe: false
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string().email('Invalid email address').required('Email is required'),
+    username: Yup.string().required('Username is required'),
     password: Yup.string().required('Password is required')
   });
 
-  console.log('API base URL:', process.env.REACT_APP_API_BASE_URL); // Add this line for debugging
-const loginpath = `${process.env.REACT_APP_API_BASE_URL}/login`;
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await authService.Login(values.username, values.password);
 
-const handleSubmit = async (values, { setSubmitting }) => {
-  try {
-    const response = await axios.post(loginpath, {
-      username: values.email,
-      password: values.password
-    });
-
-    // Handle success scenario
-    toast.success('Login successful!');
-    setTimeout(() => {
-      navigate('/dashboard');
-    }, 2000); // Redirect to dashboard after 2 seconds
-  } catch (error) {
-    // Handle error scenario
-    console.error('Login error:', error);
-    toast.error('Failed to login. Please check your credentials and try again.');
-  } finally {
-    setSubmitting(false);
-  }
-};
+      // Handle success scenario
+      toast.success('Login successful!');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 2000); // Redirect to dashboard after 2 seconds
+    } catch (error) {
+      // Handle error scenario
+      console.error('Login error:', error);
+      toast.error('Failed to login. Please check your credentials and try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="login-img flex items-center justify-center min-h-screen bg-gray-100">
@@ -69,13 +63,13 @@ const handleSubmit = async (values, { setSubmitting }) => {
             {({ isSubmitting }) => (
               <Form className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="block text-gray-600">Username</label>
+                  <label htmlFor="username" className="block text-gray-600">Username</label>
                   <Field
-                    name="email"
+                    name="username"
                     type="text"
                     className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
                   />
-                  <ErrorMessage name="email" component="div" className="text-red-500" />
+                  <ErrorMessage name="username" component="div" className="text-red-500" />
                 </div>
                 <div>
                   <label htmlFor="password" className="block text-gray-600">Password</label>

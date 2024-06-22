@@ -1,7 +1,7 @@
 // src/services/authService.js
 import axios from 'axios';
 
-const API_URL = 'https://quiz-2.testdr.co.uk/';
+const API_URL = 'https://qrcode.trulydiscover.com/';
 
 const Register = (username, email, password) => {
   return axios.post(API_URL + 'register', {
